@@ -1,9 +1,8 @@
 const router = require('express').Router();
-// Import the Project model from the models folder
 const { Project } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-// If a POST request is made to /api/projects, a new project is created. If there is an error, the function returns with a 400 error. 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
       ...req.body,
@@ -16,8 +15,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// If a DELETE request is made to /api/projects/:id, that project is deleted. 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const projectData = await Project.destroy({
       where: {
