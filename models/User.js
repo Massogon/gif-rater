@@ -32,7 +32,19 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
+        len: [8],  // Minimum length requirement
+        is: /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;"'<>,.?\/\\|`~]*$/, // Allow only safe characters
+        customValidator(value) {
+          if (!/[a-z]/.test(value)) {
+            throw new Error('Password must contain at least one lowercase letter.');
+          }
+          if (!/[A-Z]/.test(value)) {
+            throw new Error('Password must contain at least one uppercase letter.');
+          }
+          if (!/[!@#$%^&*(),.?":{}|<>]/.test(value)) {
+            throw new Error('Password must contain at least one special character.');
+          }
+        }
       },
     },
   },
@@ -43,7 +55,9 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
+        if (updatedUserData.password) {
         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        }
         return updatedUserData;
       },
     },
