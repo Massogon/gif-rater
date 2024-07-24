@@ -1,0 +1,73 @@
+/* Apply box-sizing to all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margin and padding for html, body, and wrapper */
+html,
+body,
+.wrapper {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif; /* Global font style */
+  margin: 0;
+  padding: 0;
+  background-color: #16414d; /* Dark teal background */
+  color: white; /* Default text color */
+}
+
+/* Wrapper styling */
+.wrapper {
+  padding-top: 150px; 
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Header styling */
+header {
+  background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent dark background */
+  color: white; /* White text color */
+  padding: 20px 0;
+  text-align: center;
+  position: fixed; /* Fix the header at the top */
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure header stays on top */
+  box-shadow: 0 4px 8px #f4f4f4; /* Light shadow effect */
+}
+
+/* Subheading styling */
+h2 {
+  text-align: center;
+}
+
+/* Card styling */
+.card {
+  background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent dark background */
+  border-radius: 5px;
+  border-width: 1px;
+  box-shadow: 0 4px 8px #f4f4f4; /* Light shadow effect */
+  color: white;
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 30px 40px;
+}
+
+/* Card body styling */
+.card-body {
+  min-height: 100px;
+}
+
+/* Output styling */
+.output {
+  font-size: 18px;
+  color: #fff;
+}
