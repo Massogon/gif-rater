@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS gifrater_db;
+CREATE DATABASE gifrater_db;
