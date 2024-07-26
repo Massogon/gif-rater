@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const gifIds = require('../config/storingGifs'); // Import the GIF IDs
+const gifIds = require('../config/giphy'); // Import the GIF IDs
 const apiKey = 'u2pOxWTt6rRGBMpIqwtN22Lu21FX2TLz';
 
 async function fetchGifById(req, res) {

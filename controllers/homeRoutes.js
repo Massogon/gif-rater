@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
+const path = require('path')
 
 router.get('/', async (req, res) => {
   try {
@@ -18,10 +19,7 @@ router.get('/', async (req, res) => {
     const projects = projectData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      projects, 
-      logged_in: req.session.logged_in 
-    });
+  res.sendFile(path.join(__dirname, '../public/landingpage.html'))
   } catch (err) {
     res.status(500).json(err);
   }

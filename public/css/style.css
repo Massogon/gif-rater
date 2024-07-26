@@ -22,14 +22,3 @@ header, .project:not(:last-child) {
   font-weight: bold;
   margin-left: -5px;
 }
-
-#gif-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#gif-container img {
-  margin: 5px;
-  width: 150px;
-  height: auto;
-}
