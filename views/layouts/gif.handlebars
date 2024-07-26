@@ -1,0 +1,21 @@
+{{!-- For page displaying Gifs --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIFs</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>GIFs</h1>
+  <div id="gif-container">
+    {{#each gifs}}
+      <img src="{{this.images.fixed_height.url}}" alt="{{this.title}}">
+    {{/each}}
+  </div>
+  {{!-- code for gif rating logic --}}
+  <script src="placeholder"></script>
+</body>
+</html>
