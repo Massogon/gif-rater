@@ -1,19 +1,14 @@
-class GifCountManager {
-    constructor() {
-        this.gifCounts = new Map();
-        gifIds.forEach(gifId => this.gifCounts.set(gifId, 0));
-    }
+const gifIds = require('../../config/storingGifs');
 
-    incrementGifCount(gif) {
-        let currentCount = this.gifCounts.get(gif) || 0;
-        currentCount += 1;
-        this.gifCounts.set(gif, currentCount);
-        return currentCount;
-    }
-
-    getGifCount(gif) {
-        return this.gifCounts.get(gif) || 0;
-    }
+function getRandomGifId() {
+    return gifIds[Math.floor(Math.random() * gifIds.length)];
 }
 
-// Enter API HERE
+function displayRandomGifs() {
+    document.getElementById('gif1').src = `https://media.giphy.com/media/${getRandomGifId()}/giphy.gif`;
+    document.getElementById('gif2').src = `https://media.giphy.com/media/${getRandomGifId()}/giphy.gif`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    displayRandomGifs();
+});
