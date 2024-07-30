@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.gif-container {
+  display: flex;
+  gap: 20px;
+}
+
+img {
+  width: 200px;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+img:hover {
+  border-color: #888;
+}
