@@ -1,4 +1,9 @@
 body {
+    background-image: url('/pexels-francesco-ungaro-96428.jpg');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Makes the background image fixed while scrolling */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -62,4 +67,12 @@ main .hero button {
 
 main .hero button:hover {
     background-color: #555;
+}
+
+body {
+    background-image: url('/pexels-francesco-ungaro-96428.jpg');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Makes the background image fixed while scrolling */
 }
