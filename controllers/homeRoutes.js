@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     const projects = projectData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-  res.sendFile(path.join(__dirname, '../public/landingpage.html'))
+  res.render('landingpage')
   } catch (err) {
     res.status(500).json(err);
   }

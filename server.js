@@ -1,10 +1,12 @@
+require('dotenv').config();
+
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-const giphyRoutes = require('controllers/gifRoutes.js'); // Import the Giphy routes
+const giphyRoutes = require('./controllers/gifRoutes.js'); // Import the Giphy routes
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
