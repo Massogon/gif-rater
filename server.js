@@ -7,6 +7,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const giphyRoutes = require('./controllers/gifRoutes.js'); // Import the Giphy routes
+const authRoutes = require('./routes/authRoutes');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -46,6 +47,9 @@ app.use(routes);
 
 // Use the Giphy routes
 app.use('/api', giphyRoutes);
+
+// Use the Auth routes
+app.use(authRoutes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
