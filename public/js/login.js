@@ -102,3 +102,7 @@ passwordInput.addEventListener('input', () => {
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
+
+  document
+  .querySelector('.signup-form')
+  .addEventListener('submit', signupFormHandler); // Attach the signup form handler
