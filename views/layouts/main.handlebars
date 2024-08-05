@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{#each css}}
+    <link rel="stylesheet" href="/css/{{this}}">
+    {{/each}}
+    {{!-- {{#if }}
+    <link rel="stylesheet" href="/css/gifrater.css">
+    <title>Choose a Gif | Gif-Rater</title>
+    {{else}}
     <link rel="stylesheet" href="/css/landingpage.css">
-    <title>{{title}}</title> <!-- Dynamic title -->
+    <title>Gif-Rater</title>
+    {{/if}} --}}
 </head>
 <body>
+    <!--
     <header>
         <nav>
             <div class="nav-right">
@@ -18,7 +27,7 @@
                 {{/if}}
             </div>
         </nav>
-    </header>
+    </header> -->
     <main>
         {{!-- Render the sub-layout/content --}}
         {{{body}}}
