@@ -6,8 +6,8 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-const giphyRoutes = require('./controllers/gifRoutes.js'); // Import the Giphy routes
 const authRoutes = require('./routes/authRoutes');
+const gifRoutes = require('./controllers/gifRoutes');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -21,7 +21,7 @@ const hbs = exphbs.create({ helpers });
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    maxAge: 300000,
+    maxAge: 30000000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
@@ -45,10 +45,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-// Use the Giphy routes
-app.use('/api', giphyRoutes);
+app.use(gifRoutes);
 
-// Use the Auth routes
 app.use(authRoutes);
 
 sequelize.sync({ force: false }).then(() => {
