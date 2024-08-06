@@ -58,7 +58,7 @@ const incrementScore = async (gif_id_1, gif_id_2) => {
 
 async function getScore(gifId1, gifId2) {
     try {
-        const response = await fetch('http://localhost:3001/getScore', {
+        const response = await fetch('/getScore', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
