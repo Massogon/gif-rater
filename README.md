@@ -7,7 +7,7 @@
 
 <strong>Click link to launch Gif-Rater.</strong>
 
-<strong>[Gif-Rater](https://NEED-TO-INPUT-URL-ONCE-LAUNCHED-ON-RENDER)</strong>
+<strong>[Gif-Rater](https://gif-rater-b51u.onrender.com/)</strong>
 
 <p> || Upon opening Gif-Rater you are met with our landing page.  On this landing page you will see a button close to the center of your screen with the text "The Gifs Await!" on the button.  On this landing page you will also see a welcome text and a picture of two cats on the lower half of the screen.  Click the button that states "The Gifs Await!".
 
