@@ -4,12 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/gifrater.css">
-    <title>GIF Rater</title>
+    <title>Choose a GIF | GIF Rater</title>
 </head>
 <body>
-    <div class="gif-container">
-        <img src="" alt="GIF 1" id="gif1">
-        <img src="" alt="GIF 2" id="gif2">
+    <header>
+        <nav>
+            <div class="nav-right">
+                <a href="/">Gif Rater</a>
+                <button class="logout-btn" id="logout">Sign out</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container1">
+        <div class="container2">
+            <div class="gif-container">
+                <p id="score1"></p>
+                <img src="" alt="GIF 1" class="" id="gif1" data-num="">
+                <img src="" alt="GIF 2" class="" id="gif2" data-num="">
+                <p id="score2"></p>
+            </div>
+
+            <div>
+                <a href="/gifrater" class="login-btn" id="gif-reload">Next</a> 
+            </div>
+        </div>
     </div>
     
     <script src="./js/gifrater.js"></script>
