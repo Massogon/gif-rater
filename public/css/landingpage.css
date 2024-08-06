@@ -1,5 +1,5 @@
 body {
-    background-image: url('/pexels-francesco-ungaro-96428.jpg');
+    background-image: url('../media/pexels-francesco-ungaro-96428.jpg');
     background-size: cover; /* Ensures the image covers the entire background */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */

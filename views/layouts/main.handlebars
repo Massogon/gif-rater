@@ -6,28 +6,8 @@
     {{#each css}}
     <link rel="stylesheet" href="/css/{{this}}">
     {{/each}}
-    {{!-- {{#if }}
-    <link rel="stylesheet" href="/css/gifrater.css">
-    <title>Choose a Gif | Gif-Rater</title>
-    {{else}}
-    <link rel="stylesheet" href="/css/landingpage.css">
-    <title>Gif-Rater</title>
-    {{/if}} --}}
 </head>
 <body>
-    <!--
-    <header>
-        <nav>
-            <div class="nav-right">
-                {{#if logged_in}}
-                <a href="/gifrater" class="login-btn">Login</a> | 
-                <button class="logout-btn" id="logout">Logout</button>
-                {{else}}
-                <a href="/login" class="login-btn">Login</a>
-                {{/if}}
-            </div>
-        </nav>
-    </header> -->
     <main>
         {{!-- Render the sub-layout/content --}}
         {{{body}}}
