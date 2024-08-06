@@ -24,24 +24,25 @@ router.post('/incrementScore', async (req, res) => {
     }
 });
 
-router.get('/getScore', async (req, res) => {
-  try {
-      const gifPair = await GifPair.findOne({
-          where: {
-              gif_id_1: req.params.gif_id_1,
-              gif_id_2: req.params.gif_id_2
-          }
-      });
+router.post('/getScore', async (req, res) => {
+    try {
+        const { gif_id_1, gif_id_2 } = req.body;
+        const gifPair = await GifPair.findOne({
+            where: {
+                gif_id_1: gif_id_1,
+                gif_id_2: gif_id_2
+            }
+        });
 
-      if (gifPair) {
-          res.json({ score: gifPair.score });
-      } else {
-          res.status(404).send('Pair not found');
-      }
-  } catch (error) {
-      console.error('Failed to fetch score:', error);
-      res.status(500).send('Server error');
-  }
+        if (gifPair) {
+            res.json({ score: gifPair.score });
+        } else {
+            res.status(404).send('Pair not found');
+        }
+    } catch (error) {
+        console.error('Failed to fetch score:', error);
+        res.status(500).send('Server error');
+    }
 });
 
 module.exports = router;

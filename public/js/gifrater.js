@@ -58,13 +58,21 @@ const incrementScore = async (gif_id_1, gif_id_2) => {
 
 async function getScore(gifId1, gifId2) {
     try {
-        const response = await fetch(`/getScore`);
+        const response = await fetch('http://localhost:3001/getScore', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ gif_id_1: gifId1, gif_id_2: gifId2 }),
+        });
+
         if (response.ok) {
             const data = await response.json();
             console.log('Score:', data.score);
             return data.score; // Return the score so it can be used elsewhere
         } else {
-            console.error('Failed to fetch score:', response.statusText);
+            const errorData = await response.json();
+            console.error('Failed to fetch score:', errorData.message);
             return null;
         }
     } catch (error) {
@@ -79,26 +87,32 @@ const displayScore1 = async () => {
     const score1Value = await getScore(gifIds1, gifIds2);
     const score2Value = await getScore(gifIds2, gifIds1);
 
+    const score1 = document.getElementById('score1');
+    let score1Text = document.createTextNode(score1Value + 1);
+    score1.appendChild(score1Text);
 
+    const score2 = document.getElementById('score2');
+    let score2Text = document.createTextNode(score2Value);
+    score2.appendChild(score2Text);
 
-    // const score1 = document.getElementById('score1');
-    // let score1Text = document.createTextNode(`${getScore(document.getElementById('gif1').dataset.num, document.getElementById('gif2').dataset.num)}`);
-    // score1.appendChild(score1Text);
-    // const score2 = document.getElementById('score2');
-    // let score2Text = document.createTextNode(`${getScore(document.getElementById('gif2').dataset.num, document.getElementById('gif1').dataset.num)}`);
-    // score2.appendChild(score2Text);
     document.getElementById('gif1').removeEventListener('click', displayScore1);
     document.getElementById('gif2').removeEventListener('click', displayScore2);
 };
 
-const displayScore2 = () => {
+const displayScore2 = async () => {
     incrementScore(`${gifIds2}`, `${gifIds1}`);
+    console.log(gifIds1, gifIds2)
+    const score1Value = await getScore(gifIds1, gifIds2);
+    const score2Value = await getScore(gifIds2, gifIds1);
+
     const score1 = document.getElementById('score1');
-    let score1Text = document.createTextNode("TEST1");
+    let score1Text = document.createTextNode(score1Value);
     score1.appendChild(score1Text);
+
     const score2 = document.getElementById('score2');
-    let score2Text = document.createTextNode("TEST2");
+    let score2Text = document.createTextNode(score2Value + 1);
     score2.appendChild(score2Text);
+    
     document.getElementById('gif2').removeEventListener('click', displayScore2);
     document.getElementById('gif1').removeEventListener('click', displayScore1);
 };
