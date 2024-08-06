@@ -1,25 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
+  background-color: #ebe8df;
+  height: 99dvh;
+}
+
+.nav-right {
+  background-color: #000000cb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding: 15px;
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 2.5rem;
+}
+
+.nav-right button {
+  font-size: 1.2rem;
+  padding: 8px;
+}
+
+.nav-right button:hover {
+  background-color: #fcb8b8;
+}
+
+.container1 {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
-  margin: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    height: 80dvh;
+    justify-content: center;
+}
+
+.container2 {
+  display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
 }
 
 .gif-container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
+  margin: 15px;
+}
+
+@media screen and (max-width: 600px) {
+  .gif-container {
+    flex-direction: column;
+  }
+}
+
+#gif-reload {
+  text-decoration: none;
+  color: #000000;
+  border: #000000 50px;
+  background-color: #19b819;
+  font-size: 2rem;
+  margin: 10px;
+  padding: 5px;
+}
+
+#gif-reload:hover {
+  font-size: 2.1rem;
 }
 
 img {
   width: 200px;
   cursor: pointer;
-  border: 2px solid #ccc;
+  border: 5px solid #ffffff00;
   border-radius: 10px;
+  height: 25dvh;
 }
 
 img:hover {
   border-color: #888;
+  size: 50px;
+}
+
+.gif1selected {
+  background-color: #00ff009c;
+}
+
+.gif2selected {
+  background-color: #00ff009c;
 }
