@@ -1,15 +1,22 @@
+// Imports the Sequelize library
 const Sequelize = require('sequelize');
+// Utilizes the 'dotenv' package in order to load the .env file and sets the environment variables to the process.env object.
 require('dotenv').config();
 
 let sequelize;
-
-if (process.env.DB_URL) {
-  // Use connection string if provided
-  sequelize = new Sequelize(process.env.DB_URL, {
-    dialect: 'postgres'
+// Checks to see if the application is deployed. If DATABASE_URL environment variable exists, then that is used. If not, it determines that you're on your local machine and utilizes the environment variables from the .env file to set up Sequelize. 
+if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    protocol: 'postgres',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
   });
 } else {
-  // Fallback to individual parameters
   sequelize = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,
